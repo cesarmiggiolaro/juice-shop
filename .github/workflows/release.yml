@@ -39,7 +39,7 @@ jobs:
           npm install -g grunt-cli
           npm run package:ci
       - name: 'Attach packaged archive to tag release'
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           draft: true
           files: dist/*
@@ -61,7 +61,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: "Get tag name"
         id: tag
-        uses: dawidd6/action-get-tag@v1
+        uses: dawidd6/action-get-tag@v2
       - name: "Set labels for ${{ github.ref }}"
         run: |
           echo "VCS_REF=`git rev-parse --short HEAD`" >> $GITHUB_ENV
